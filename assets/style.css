@@ -108,7 +108,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 	.navbar-brand{padding-top: 11px;}
 	.process ul li{margin:0 0.5em; }
 	
-	.grid figure h2{font: 700 1.5em Roboto,Arial,Helvetica;}
+	.grid figure h2{font: 700 1.5em Microsoft YaHei;}
 	figure.effect-oscar figcaption{padding: 12%;}
 	figure.effect-oscar figcaption::before,figure.effect-chico figcaption::before{top: 20px;right: 20px;bottom: 20px;left: 20px;}
 
