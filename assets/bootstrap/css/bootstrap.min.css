@@ -4421,8 +4421,11 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 }
 
 .navbar-default .navbar-brand {
-	color: #777
+	color: #777;
+	padding-top:0.3em;
+	font-size:3em;
 }
+
 
 .navbar-default .navbar-brand:hover,.navbar-default .navbar-brand:focus {
 	color: #5e5e5e;
