@@ -29,6 +29,8 @@
 
 <link rel="stylesheet" href="assets/style.css">
 
+<!-- jquery -->
+<script src="assets/jquery.js"></script>
 </head>
 
 <body>
@@ -86,7 +88,7 @@
         <figcaption>
             <h2>飞虎队纪念馆</h2>
             <p>UE4开发路线制作虚拟仿真展馆<br>
-            <a href="images/demos/mflytiger/jng01.jpg" gallery="01" title="01" data-gallery01>更多</a></p>  
+            <a href="images/demos/mflytiger/jng01.jpg" gallery="01" title="01[预览]" v="http://olbe549rf.bkt.clouddn.com/%E9%A3%9E%E8%99%8E%E9%98%9F%E7%BA%AA%E5%BF%B5%E9%A6%86%2001.mp4" data-gallery01>更多</a></p>  
 			<br/>          
 			<a href="images/demos/mflytiger/jng02.jpg" style="visibility:hidden" title="02" data-gallery01></a>
 			<a href="images/demos/mflytiger/jng03.jpg" style="visibility:hidden" title="03" data-gallery01></a>
@@ -114,7 +116,7 @@
         <figcaption>
             <h2>虚拟校园</h2>
             <p>虚拟校园App概念展示一款SNS和O2O结合的校园主题App<br>
-            <a href="images/demos/vcollege/1xnxy_.jpg" gallery="03" title="01" data-gallery03>更多</a>
+            <a href="images/demos/vcollege/1xnxy_.jpg" gallery="03" title="01[预览]" v="http://olbe549rf.bkt.clouddn.com/%E8%99%9A%E6%8B%9F%E6%A0%A1%E5%9B%ADdemo_.mp4" data-gallery03>更多</a>
 			<br/>
 			<a href="images/demos/vcollege/2xnxy_.jpg" style="visibility:hidden" title="02" data-gallery03></a>
 			<a href="images/demos/vcollege/3xnxy_.jpg" style="visibility:hidden" title="03" data-gallery03></a>
@@ -123,6 +125,7 @@
 			<a href="images/demos/vcollege/6xnxy_.jpg" style="visibility:hidden" title="06" data-gallery03></a> 
 			<a href="images/demos/vcollege/7xnxy_.jpg" style="visibility:hidden" title="07" data-gallery03></a> 
 			<a href="images/demos/vcollege/8xnxy_.jpg" style="visibility:hidden" title="08" data-gallery03></a> 
+			<!--a href="images/demos/flytiger/flytiger_2.jpg" style="visibility:hidden" title="09[预览]" v="file:///C:/Users/Administrator/Desktop/虚拟校园demo.mp4" data-gallery03></a--> 
         </figcaption>
     </figure>
      <figure class="effect-oscar  wowload fadeInUp">
@@ -158,6 +161,8 @@
 			<a href="images/demos/qhc/qhc2.jpg" style="visibility:hidden" title="02" data-gallery06></a>
 			<a href="images/demos/qhc/qhc3.jpg" style="visibility:hidden" title="03" data-gallery06></a> 
 			<a href="images/demos/qhc/qhc4.jpg" style="visibility:hidden" title="04" data-gallery06></a> 
+			<a href="images/demos/qhc/preview01.jpg" style="visibility:hidden" title="05[预览]" v="http://olbe549rf.bkt.clouddn.com/%E6%99%AF%E7%A7%80%E6%B9%BE.mp4" data-gallery06></a> 
+			<a href="images/demos/qhc/preview02.jpg" style="visibility:hidden" title="06[预览]" v="http://olbe549rf.bkt.clouddn.com/%E9%93%82%E6%82%A6%E6%88%90%E7%89%87_.mp4" data-gallery06></a> 
         </figcaption>
     </figure>
 </div>
@@ -342,12 +347,20 @@
 	<figure class="effect-chico">
         <img src="images/team/21.PNG" alt="img01"/>
         <figcaption>
-            <p><b>郝国亮</b><br>Web前段设计与开发<br><br><!--a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a--></p>
+            <p><b>郝国亮</b><br>Web前端设计与开发<br><br><!--a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a--></p>
         </figcaption>
     </figure>
     </div>
 
  
+    <div class=" col-sm-3 col-xs-6">
+	<figure class="effect-chico">
+        <img src="images/team/24.PNG" alt="img01"/>
+        <figcaption>
+            <p><b>关良</b><br>三维设计、三维建模<br><br><!--a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a--></p>
+        </figcaption>
+    </figure>
+    </div>
 </div>
 <!-- team -->
 
@@ -409,8 +422,6 @@ Copyright &copy; 2016.Anti Tired Techno All rights reserved.
 
 
 
-<!-- jquery -->
-<script src="assets/jquery.js"></script>
 
 <!-- wow script -->
 <script src="assets/wow/wow.min.js"></script>
@@ -428,6 +439,56 @@ Copyright &copy; 2016.Anti Tired Techno All rights reserved.
 
 <!-- custom script -->
 <script src="assets/script.js"></script>
+
+<script type="text/javascript">
+var i=0;
+var galleryData = "";
+$("[gallery]").each(
+  function(){
+	i++;
+	galleryData = "data-gallery"+((i<10)?("0"+i):i);
+	$("["+galleryData+"][v]").attr("dg",galleryData);
+//	console.log(galleryData);
+	$(this).click(
+		function(){
+			var galleryAttr = "data-gallery"+$(this).attr("gallery");
+			console.log(galleryAttr);
+			setTimeout(function(){
+				var mp4Node = $("#blueimp-gallery [title$='[预览]']");
+				mp4Node.each(
+					function(){
+						$(this).css('visibility','hidden');
+						var div = $(this).parent("div");
+						var video = $("<video></video>");
+						video.attr("controls","controls");
+						video.attr("class","slide-content");
+						video.attr("poster",$(this).attr("src"));
+						//alert($("[data-gallery01][v]").attr("v"));
+						
+						
+						//var search = "["+$("[dg][title='"+mp4Node.attr("title")+"']").attr("dg")+"][v]"+"["+galleryAttr+"]";
+						//var search = "["+$("[dg][title='"+mp4Node.attr("title")+"']").attr("dg")+"][v]"+"["+galleryAttr+"]";
+						var search = "[v]"+"["+galleryAttr+"]"+"[title='"+$(this).attr("title")+"']";
+
+						console.log(search);
+						video.attr("src",$(search/*"[data-gallery01][v]"*/).attr("v"));
+						div.append(video);
+						//var divNode = $("[title='Mp4']").parent("div");
+						$("[class=prev]").click(function(){
+							video[0].pause();
+						});
+						$("[class=next]").click(function(){
+							video[0].pause();
+						});
+						//alert(div.attr("class"));
+					}
+				);
+			},500);
+		}
+	);
+  }
+);
+</script>
 
 </body>
 </html>
