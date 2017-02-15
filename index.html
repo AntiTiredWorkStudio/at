@@ -320,23 +320,48 @@
 <h3 class="text-center  wowload fadeInUp">我们</h3>
 <p class="text-center  wowload fadeInLeft">反人累、自由、轻松，只为破除死规矩，只为真心创造，只为实用</p>
 <div class="row grid team  wowload fadeInUpBig">	
+<style type="text/css">
+          .effect-chico{position: relative;}
+          .figcaption li{line-height:50px}
+          .btt{border: 1px solid #fff; margin-top: 1em; color: #fff; padding: 0 2em;background: none}
+          .dis_fig{width:100%;height: 100%; position: absolute;left: 0;top: 0;z-index: 1;display: none;box-shadow:5 5 5px #aaa;opacity: 1.0;background: #101010  }
+          .dis_fig .pic{width: 60%;height: 60%;/*margin: 0 auto;margin-top:15%;*/position: absolute;left: 20%;top:15%;}
+          .dis_fig .pic img{ width: 100%;height: 100% }
+          .dis_fig .pic p{margin-top:5%;}
+        </style>
 	<div class=" col-sm-3 col-xs-6">
 	<figure class="effect-chico">
         <img src="images/team/20.PNG" alt="img01" class="img-responsive" />
         <figcaption>
             <p>孔令枫</p>    
             <p>项目统筹、Unity3d、PHP工程开发</p>  
+            <p><input type="button" name="" value="联系我" class="btt"></p>
+            <div class="dis_fig">
+             <div class="pic">
+                 <img src="images/kong_pic.jpg" >
+                 <p><span>手机：</span>1111111111</p>
+                 <p><span>邮箱：</span><span>655655@qq.com</span></p>
+             </div>
+            </div>
 		</figcaption>
     </figure>
     </div>
-
+   
     <div class=" col-sm-3 col-xs-6">
 	<figure class="effect-chico">
         <img src="images/team/22.PNG" alt="img01"/>
         <figcaption>  
          	<p>魏云鹏</p>    
             <p>项目策划</p>  
-            <p>UnrealEngine开发</p>               
+            <p>UnrealEngine开发</p>   
+            <p><input type="button" name="" value="联系我" class="btt"></p>
+            <div class="dis_fig">
+             <div class="pic">
+                 <img src="images/kong_pic.jpg" >
+                 <p><span>手机：</span>1111111111</p>
+                 <p><span>邮箱：</span><span>655655@qq.com</span></p>
+             </div>
+            </div>            
         </figcaption>
     </figure>
     </div>
@@ -347,6 +372,14 @@
         <figcaption>
         	<p>宋昀峰</p>    
             <p>UI设计、三维设计、艺术形象设计</p>  
+            <p><input type="button" name="" value="联系我" class="btt"></p>
+            <div class="dis_fig">
+             <div class="pic">
+                <img src="images/kong_pic.jpg" >
+                <p><span>手机：</span>1111111111</p>
+                <p><span>邮箱：</span><span>655655@qq.com</span></p>
+             </div>
+            </div>
         </figcaption>
     </figure>
     </div>
@@ -357,6 +390,14 @@
         <figcaption>
         	<p>郝国亮</p>    
             <p>Web前端设计与开发</p>  
+            <p><input type="button" name="" value="联系我" class="btt"></p>
+            <div class="dis_fig">
+             <div class="pic">
+                <img src="images/kong_pic.jpg" >
+                 <p><span>手机：</span>1111111111</p>
+                <p><span>邮箱：</span><span>655655@qq.com</span></p>
+             </div>
+            </div>
         </figcaption>
     </figure>
     </div>
@@ -368,8 +409,24 @@
         <figcaption>
        		<p>关良</p>    
             <p>三维设计、三维建模</p>  
+            <p><input type="button" name="" value="联系我" class="btt"></p>
+            <div class="dis_fig">
+             <div class="pic">
+                <img src="images/kong_pic.jpg" >
+                <p><span>手机：</span>1111111111</p>
+                <p><span>邮箱：</span><span>655655@qq.com</span></p>
+             </div>
+            </div>
         </figcaption>
     </figure>
+     <script type="text/javascript">
+         $('.btt').click(function(){
+            $(this).parent('p').next().fadeIn(1000);
+         });
+         $('.dis_fig').click(function(){
+            $(this).fadeOut(1000);
+         });
+    </script>
     </div>
 </div>
 <!-- team -->
