@@ -423,8 +423,10 @@
          $('.btt').click(function(){
             $(this).parent('p').next().fadeIn(1000);
          });
-         $('.dis_fig').click(function(){
-            $(this).fadeOut(1000);
+         $('.dis_fig').hover(function(){
+            $(this).fadeIn(1000);
+         },function(){
+          $(this).fadeOut(1000);
          });
     </script>
     </div>
