@@ -1,0 +1,12 @@
+{
+	"title":"电子楼书",
+	"content":"通过引擎及三维渲染技术实现楼盘展示 场景漫游 户型介绍等电子楼书功能",
+	"videos":{
+		"images/demos/6_qhc/preview01.jpg":{
+		"video":"http://olbe549rf.bkt.clouddn.com/video/%E6%99%AF%E7%A7%80%E6%B9%BE.mp4"
+		},
+		"images/demos/6_qhc/preview02.jpg":{
+		"video":"http://olbe549rf.bkt.clouddn.com/video/%E9%93%82%E6%82%A6%E6%88%90%E7%89%87_.mp4"
+		}
+	}
+}
