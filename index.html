@@ -31,6 +31,9 @@
 
 <!-- jquery -->
 <script src="assets/jquery.js"></script>
+<!--[if lt IE9]> 
+<script src="assets/j.js"></script>
+<![endif]-->
 <style type="text/css">
 .erwei{width:100%;height:70%;}
 .erwei img{width:100%;height:100%}
@@ -66,7 +69,8 @@
               <ul class="nav navbar-nav navbar-right scroll">
                  <li class="active"><a href="#works">项目</a></li>
                  <li ><a href="#about">关于</a></li>
-                 <li ><a href="#partners">技术支持</a></li>
+                 <li ><a href="#techno">技术支持</a></li>
+                 <li ><a href="#ours">我们</a></li>
                  <li ><a href="#contact">联系</a></li>
               </ul>
             </div>
@@ -88,6 +92,10 @@
 <!-- works -->
 <div id="works"  class=" clearfix grid"> 
     
+</div>
+<div  class=" clearfix grid"> 
+    <button id = "bt_Last" class="btn btn-last" style ="visibility:hidden;float:left;" onclick = "W(start,count,false);">上一页</button>
+    <button id = "bt_Next" class="btn btn-next" style ="visibility:hidden;float:right;" onclick = "W(start,count,true);">下一页</button>
 </div>
 <!-- works -->
 
@@ -111,6 +119,60 @@
   <p>我们比的不是工作经验，而是不断开拓先进技术，让开发化繁为简，不仅旨在满足于客户的需求和体验，而是让应用、游戏具有真正的实用价值。未来，VR、AR领域为主要拓展点，让虚拟现实运用于人们更快更舒适更有效的生活中。 </p>
 </div>
   </div>
+  
+  <div class="row">
+	  <div class="col-sm-6 wowload fadeInLeft">
+		<h4><i class="fa fa-stumbleupon-circle"></i> 创意</h4>
+		<p>创意玩的就是打破常规，打破一切约定俗成的东西，就像废墟一片绿洲，你走进来，模式被改变，砰的一声世界变得广阔。用匠人精神与创意思维来打造“反人累”的产品与模式。</p>
+		<div class="col-sm-6 wowload fadeInLeft">
+				<h5><i class="fa fa-qrcode"></i> 92号剧场</h5>
+				<a href="a/ed"><img src="images/qrcode/qrporn.jpg" style="width:80%; height:80%;" alt="img01"/></a>
+		</div>
+			<div class="col-list wowload fadeInLeft">
+				<h5><i class="fa fa-book"></i> 近期文章</h5>
+				<ul id="articles" class="ul-list">
+					<li class = "li-list"><a href="http://mp.weixin.qq.com/s/eigbIRUaHQb88ScMp2qU7g">在阳光下享受罪恶的空气--分裂希区柯克</a></li>
+					<li class = "li-list"><a href="http://mp.weixin.qq.com/s/eigbIRUaHQb88ScMp2qU7g">在阳光下享受罪恶的空气----分裂希区柯克</a></li>
+					<li class = "li-list"><a href="http://mp.weixin.qq.com/s/eigbIRUaHQb88ScMp2qU7g">在阳光下享受罪恶的空气----分裂希区柯克</a></li>
+					<li class = "li-list"><a href="http://mp.weixin.qq.com/s/eigbIRUaHQb88ScMp2qU7g">在阳光下享受罪恶的空气----分裂希区柯克</a></li>
+					<li class = "li-list"><a href="http://mp.weixin.qq.com/s/eigbIRUaHQb88ScMp2qU7g">在阳光下享受罪恶的空气----分裂希区柯克</a></li>
+					<li class = "li-list"><a href="http://mp.weixin.qq.com/s/eigbIRUaHQb88ScMp2qU7g">在阳光下享受罪恶的空气----分裂希区柯克</a></li>
+				</ul>
+			</div>
+	  </div>
+	  
+	  <div class="col-sm-6 wowload fadeInLeft">
+		<h4><i class="fa fa-tag"></i> 唯心</h4>
+			  <div id="own-testimonials" class="carousel slide testimonails  wowload fadeInRight" data-ride="carousel">
+			  <div class="carousel-inner">  
+			  <div class="item active animated bounceInRight row">
+			  <div class="animated slideInLeft col-xs-2"><img src="images/partners/book.jpg" alt="portfolio" width="96" height="96" class="img-circle img-responsive"></div>
+			  <div  class="col-xs-10">
+			  <p> 一个人的智力、知识、灵感、创意、洞察力、想象力只有转换为看得见的成果才会被承认，没有产出的优秀都是耍流氓。</p>      
+			  <span><b>--《眼眶会红的人,一辈子都不会老》</b></span>
+			  </div>
+			  </div>
+			  <div class="item  animated bounceInRight row">
+			  <div class="animated slideInLeft col-xs-2"><img alt="portfolio" src="images/partners/Frank.png" width="190" class="img-circle img-responsive"></div>
+			  <div  class="col-xs-10">
+			  <p>梵高伟大的地方在于他深处地狱般的热火中看到的却是这个世界上最美好的景象。所有的一切仿佛都是美好的，就连街上的垃圾也如此，这也许就是艺术的极致吧。</p>
+			  <span><b>--小Frank</b></span>
+			  </div>
+			  </div>
+		  </div>
+
+		   <!-- Indicators -->
+			<ol class="carousel-indicators">
+			<li data-target="#own-testimonials" data-slide-to="0" class="active"></li>
+			<li data-target="#own-testimonials" data-slide-to="1"></li>
+			</ol>
+			<!-- Indicators -->
+		  </div>
+	  </div>
+</div>
+	  
+	  
+
 
   <div class="process">
   <h3 class="text-center wowload fadeInUp">轻松解决 反对人累</h3>
@@ -138,7 +200,7 @@
 
 
 <!-- About Starts -->
-<div class="highlight-info">
+<div class="highlight-info" id = "techno">
 <div class="overlay spacer">
 <div class="container">
 <div class="row text-center  wowload fadeInDownBig">
@@ -236,7 +298,7 @@
 
 
 <!-- team -->
-<h3 class="text-center  wowload fadeInUp">我们</h3>
+<h3 id = "ours" class="text-center  wowload fadeInUp">我们</h3>
 <p class="text-center  wowload fadeInLeft">反人累、自由、轻松，只为破除死规矩，只为真心创造，只为实用</p>
 <div class="row grid team  wowload fadeInUpBig">	
 <style type="text/css">
@@ -422,10 +484,10 @@
 <!-- Footer Starts -->
 <div id="Copyright" class="footer text-center spacer">
 <p class="wowload flipInX">
-	<a href="#"><i class="fa fa-facebook fa-2x"></i></a> 
-	<a href="#"><i class="fa fa-instagram fa-2x"></i></a> 
-	<a href="#"><i class="fa fa-twitter fa-2x"></i></a> 
-	<a href="#"><i class="fa fa-flickr fa-2x"></i></a> 
+	<a href="#"><i class="fa fa-weibo fa-2x"></i></a> 
+	<a href="#"><i class="fa fa-weixin fa-2x"></i></a> 
+	<a href="#"><i class="fa fa-steam-square fa-2x"></i></a> 
+	<a href="#"><i class="fa fa-github fa-2x"></i></a> 
 </p>
 Copyright &copy; 2017.Anti Tired Techno All rights reserved.
 </div>
@@ -446,6 +508,9 @@ Copyright &copy; 2017.Anti Tired Techno All rights reserved.
 
 
 
+<!-- gallery -->
+<script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
+<script src="assets/v2m.js"></script>
 <script src="assets/w.js"></script>
 
 <!-- wow script -->
@@ -459,13 +524,9 @@ Copyright &copy; 2017.Anti Tired Techno All rights reserved.
 <script src="assets/mobile/touchSwipe.min.js"></script>
 <script src="assets/respond/respond.js"></script>
 
-<!-- gallery -->
-<script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
 
 <!-- custom script -->
 <script src="assets/script.js"></script>
-
-<script src="assets/v2m.js"></script>
 
 </body>
 </html>

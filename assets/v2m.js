@@ -1,7 +1,7 @@
 
 
 var videos = [];
-setTimeout(function(){
+var initVideos = function(){
 	var i=0;
 	var galleryData = "";
 	$("[gallery]").each(
@@ -39,12 +39,13 @@ setTimeout(function(){
 						}
 					);
 					console.log(videos);
-				},500);
+				},1);
 			}
 		);
 	  }
 	);
-},500);
+}
+//setTimeout(,500);
 
 var isSubmit = false;
 var SubmitMsg = function(){
@@ -56,7 +57,7 @@ var PostForm = {"at_client":$("#at_client").val()};
 	PostForm["at_content"] = $("#at_content").val();
 $.ajax({
 	type: 'POST',
-	url: "http://www.lofs.pw/at/a/R.php",
+	url: "a/R.php",
 	data: PostForm,
 	success: function(data){
 		isSubmit = true;
@@ -74,7 +75,7 @@ PostForm = {};
 var content = "";
 $.ajax({
 	type: 'POST',
-	url: "http://www.lofs.pw/at/a/R.php?g=copyright",
+	url: "a/R.php?g=copyright",
 	data: PostForm,
 	success: function(data){
 		content = data;
@@ -82,4 +83,13 @@ $.ajax({
 	},
 	dataType: "text"});
  
+$.ajax({
+	type: 'POST',
+	url: "a/porn",
+	data: PostForm,
+	success: function(data){
+		$("#articles").html(data);
+		//console.log(data);
+	},
+	dataType: "text"});
  
