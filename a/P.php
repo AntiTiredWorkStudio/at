@@ -56,8 +56,6 @@
 			return "";
 		}
 	}
-	
-	
 	/*foreach($arr as $key=>$value){
 		echo $key.'=>'.$value.'</br>';
 		$files = getFiles('../images/demos/'.$value);
@@ -69,13 +67,29 @@
 	}*/
 	$arr = getDirs('../images/demos');
 //	var_dump($arr);
-	$index = 1;
+	
+	
+	$start = $_POST['s'];
+	$count = $_POST['c'];
+	$lastReal = $_POST['r'];
+//	echo ($_POST['d']);
+	$index = 1;//$start;
+	$total = count($arr); 
+	$real = 0;
 	foreach($arr as $key=>$value){
+		if($index < $start){
+			$index++;
+			continue;
+		}
+		if($index>($start+$count-1) || $index >$total){
+			break;
+		}
 		$files = getFiles('../images/demos/'.$value);
 		$C = null;
 		if(isset($files['json'])){
 			$config = file_get_contents('../'.$files['json']);// this line need to be change
 			$C = json_decode($config,TRUE);
+			$real++;
 			//var_dump($C);  
 			//echo $de_json->title;
 			//echo $config;
@@ -87,12 +101,12 @@
 		$videos = $C['videos'];
 		$galleryName = 'data-gallery';
 		?>
-<figure class="effect-oscar  wowload fadeIn">
+<figure class="effect-oscar  wowload <?php echo ((($_POST['d']=='false'))?"fadeTransLeft":"fadeTransRight");?>">
         <img src="<?php echo $files[0];?>" alt="img01"/>
         <figcaption>
             <h2><?php echo $title;?></h2>
             <p><?php echo $intro;?><br>
-            <a href="<?php echo $files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
+            <a onclick = "alert('还未完成加载');" href = "<?php echo 'http://www.lofs.pw/';?>" shref="<?php echo $files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
 				$v = GetVideo($files[0],$videos);
 				echo '01'.(($v != '')?'[预览]':'');
 			?>" 
@@ -116,4 +130,31 @@
 </figure>
 <?php 
 	$index++;
-}?>
+}
+
+
+$lastStart = $start-$count;
+$nextStart = $start+$count;
+$subAddson = ($count - $lastReal);
+$addon = ($count%2==0)?(/*$lastReal+*/0):(/*$lastReal +*/1);
+$onborder = "none";
+if($lastStart<0){
+	$lastStart = $start;// += ($total+$addon);
+	/*if($lastStart == 0){
+		$lastStart = 1;
+	}*/
+	$onborder = 'left';
+}
+
+
+if($nextStart>$total){
+	$nextStart  = $start; //-= ($total+$addon);//(floor($total/$count)*($count));
+	/*if($nextStart == 0){
+		$nextStart = 1;
+	}*/
+	$onborder = 'right';
+}
+
+
+?>
+<meta id="galleryData" border = "<?php echo $onborder;?>" total = "<?php echo $total;?>" real = "<?php echo $real;?>" current = "<?php echo $start;?>" lastStart = "<?php echo $lastStart;//(($start-$count-1)<0)?1:($start-$count);?>" nextStart = "<?php echo $nextStart;//echo (($start+$count-1)>=$total)?$total:($start+$count);?>">
