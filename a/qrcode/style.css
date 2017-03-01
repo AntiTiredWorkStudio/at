@@ -1,0 +1,17 @@
+/*
+By °¢Àï(Ali727)
+ÈÕÆÚ£º20120409
+*/
+body { margin:0 auto; width:100%; background-color:#AEE2FA; text-align:center;}
+#all { margin-top:50px; font-size:18px;}
+#title { background-color:#FFF; line-height:60px; font-size:26px;height:60px; font-weight:bold;}
+#iform {}
+#now {margin-top:1em;}
+#now p{margin:0 auto; height:40px; line-height:40px; overflow:hidden; width:50%;}
+#left { height:370px; width:49%; background-color:#F8F8F8; float:left; margin-top:10px;padding-top:40px;overflow:hidden;}
+#content {height:200px;width:75%;}
+#right { height:370px; width:49%; overflow:hidden; background-color:#FAFAFA; float:right; margin-top:10px;padding:40px auto;}
+.code {padding-top:40px; width:100%}
+.clear {clear:both;}
+#footer { color:gray; background-color:#FFF;line-height:30px; font-size:16px;height:30px;margin-top:10px;}
+#footer a{ color:gray; text-decoration:none;}
