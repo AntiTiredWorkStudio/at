@@ -106,7 +106,7 @@
         <figcaption>
             <h2><?php echo $title;?></h2>
             <p><?php echo $intro;?><br>
-            <a onclick = "alert('还未完成加载');" href = "<?php echo 'http://www.lofs.pw/';?>" shref="<?php echo $files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
+            <a onclick = "alert('还未完成加载');" href = "<?php echo '../../';?>" shref="<?php echo $files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
 				$v = GetVideo($files[0],$videos);
 				echo '01'.(($v != '')?'[预览]':'');
 			?>" 

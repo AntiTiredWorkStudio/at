@@ -69,7 +69,7 @@ $.ajax({
  var d = new Date(),
  nowYear = +d.getFullYear();
  inputNow = nowYear;
- 
+ var ICP = "京ICP备17013536号";
 PostForm = {};
 	PostForm["Year"] = inputNow;
 var content = "";
@@ -79,7 +79,7 @@ $.ajax({
 	data: PostForm,
 	success: function(data){
 		content = data;
-		$("#Copyright").html(content+"Copyright &copy; "+inputNow+".Anti Tired Techno All rights reserved.");
+		$("#Copyright").html(content+"Copyright &copy; "+inputNow+".Anti Tired Techno All rights reserved."+ICP);
 	},
 	dataType: "text"});
  

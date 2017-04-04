@@ -186,6 +186,7 @@ var W = function(s,c,f){
 				
 				var totalDeltaY = 0;
 				$("#works").on("touchstart",function(e){
+					return;
 					var touch = e.originalEvent.targetTouches[0]; 
 					var x = touch.pageX;
 					var y = touch.pageY;
@@ -200,6 +201,7 @@ var W = function(s,c,f){
 					//console.log("touchstart detected!",x,y);
 				});
 				$("#works").on("touchmove",function(e){ 
+					return;
 					//console.log(e);
 					var touch = e.originalEvent.targetTouches[0]; 
 					var x = touch.pageX;
@@ -225,6 +227,7 @@ var W = function(s,c,f){
 					}
 				});
 				$("#works").on("touchend",function(){
+					return;
 					//console.log("touchend detected!");
 					deltaX = 0;
 					totalDeltaX = 0;
@@ -240,7 +243,7 @@ var W = function(s,c,f){
 	},600);
 }
 var OnTouchMove = false;
-$("body")[0].addEventListener('touchmove', function (e) { if(OnTouchMove){e.preventDefault();} }, false);
+//$("body")[0].addEventListener('touchmove', function (e) { if(OnTouchMove){e.preventDefault();} }, false);
 
 function IsPC() {
     var userAgentInfo = navigator.userAgent;
