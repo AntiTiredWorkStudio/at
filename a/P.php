@@ -1,5 +1,5 @@
 <?php
-	header("Content-Type: text/html;charset=utf-8"); 
+/*	header("Content-Type: text/html;charset=utf-8"); 
 	function getDirs($dir) {
 		$dirArray[]=NULL;
 		if (false != ($handle = opendir ( $dir ))) {
@@ -55,7 +55,7 @@
 		}else{
 			return "";
 		}
-	}
+	}*/
 	/*foreach($arr as $key=>$value){
 		echo $key.'=>'.$value.'</br>';
 		$files = getFiles('../images/demos/'.$value);
@@ -65,6 +65,7 @@
 			echo '&nbspno config file!</br>';
 		}
 	}*/
+	include_once("Public.php");
 	$arr = getDirs('../images/demos');
 //	var_dump($arr);
 	
@@ -94,6 +95,9 @@
 			//echo $de_json->title;
 			//echo $config;
 		}else{
+			continue;
+		}
+		if(isset($C['secret']) && $C['secret']){
 			continue;
 		}
 		$title = $C['title'];
