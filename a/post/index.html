@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>文章管理</title>
+
+<!-- Google fonts -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+<!-- font awesome -->
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css" />
+
+<!-- animate.css -->
+<link rel="stylesheet" href="../../assets/animate/animate.css" />
+<link rel="stylesheet" href="../../assets/animate/set.css" />
+
+<!-- gallery -->
+<link rel="stylesheet" href="../../assets/gallery/blueimp-gallery.min.css">
+
+<!-- favicon -->
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+<link rel="stylesheet" href="../../assets/style.css">
+
+<!-- jquery -->
+<script src="../../assets/jquery.js"></script>
+<!--[if lt IE9]> 
+<script src="assets/j.js"></script>
+<![endif]-->
+<style type="text/css">
+.erwei{width:100%;height:70%;}
+.erwei img{width:100%;height:100%}
+</style>
+</head>
+
+<body>
+<!--Contact Starts-->
+<div id="contact" class="spacer">
+
+<div class="container contactform center">
+<h3 class="text-center  wowload fadeInUp">文章发布</h3>
+  <div class="row wowload fadeInLeftBig">      
+      <div class="col-sm-6 col-sm-offset-3 col-xs-12">      
+		<input id="at_title" type="text" placeholder="文章标题" value ="">
+		<input id="at_url" type="text" placeholder="文章链接"  value ="">
+		<button class="btn btn-primary" onclick="SubmitMsg();"><i class="fa fa-paper-plane"></i> 提交</button>
+      </div>
+	  
+  </div>
+  
+  <div class="row wowload fadeInLeftBig">    
+	<h4 class="text-center  wowload fadeInUp">管理文章</h4>  
+      <div id = "setting" class="col-sm-6 col-sm-offset-3 col-xs-12">
+	  </div>
+  </div>
+  
+  <div class="row wowload fadeInLeftBig">    
+      <div id = "setting" class="col-sm-6 col-sm-offset-3 col-xs-12">
+		<span style="font-size:18px;"><a href = '../qrcode'><i class="fa fa-qrcode"></i> 二维码在线生成</a></span>  
+	  </div>
+  </div>
+  <div class="row wowload fadeInLeftBig">
+      <div  class="col-sm-6 col-sm-offset-3 col-xs-12">
+		<span style="font-size:20px;"><a href = '../../'><i class="fa fa-reply"></i> 返回首页</a></span>  
+	  </div>
+  </div>    
+   <script type="text/javascript">
+   
+		
+		$.ajax({
+			type: 'GET',
+			url: "../porn?s",
+			data: null,
+			success: function(data){
+				$("#setting").html(data);
+				},
+			dataType: "text"});
+   var ispost = false;
+   var SubmitMsg = function(){
+		if(!ispost){
+			ispost = true;
+		}else{
+			return;
+		}
+		
+		console.log("SubmitMsg");
+		var PostForm = {"at_title":$("#at_title").val()};
+		PostForm["a"] = "article";
+		PostForm["at_title"] = $("#at_title").val();
+		PostForm["at_url"] = $("#at_url").val();
+		console.log(PostForm);
+		
+		$.ajax({
+			type: 'GET',
+			url: "../porn",
+			data: PostForm,
+			success: function(data){
+				alert("发布成功!");
+				window.location.href = "../post";
+				},
+			dataType: "text"});
+			
+		
+	}
+   </script>
+</body>
+</html>

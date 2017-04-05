@@ -1014,6 +1014,67 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   animation-name: fadeIn;
 }
 
+
+
+@-webkit-keyframes fadeTransLeft {
+  0% {
+    opacity: 0;
+	transform: translateX(-1000px);
+  }
+
+  100% {
+    opacity: 1;
+	transform: translateX(-0px);
+  }
+}
+
+@keyframes fadeTransLeft {
+  0% {
+    opacity: 0;
+	transform: translateX(-1000px);
+  }
+
+  100% {
+    opacity: 1;
+	transform: translateX(-0px);
+  }
+}
+
+.fadeTransLeft {
+  -webkit-animation-name: fadeTransLeft;
+  animation-name: fadeTransLeft;
+}
+
+
+@-webkit-keyframes fadeTransRight {
+  0% {
+    opacity: 0;
+	transform: translateX(1000px);
+  }
+
+  100% {
+    opacity: 1;
+	transform: translateX(-0px);
+  }
+}
+
+@keyframes fadeTransRight {
+  0% {
+    opacity: 0;
+	transform: translateX(1000px);
+  }
+
+  100% {
+    opacity: 1;
+	transform: translateX(-0px);
+  }
+}
+
+.fadeTransRight {
+  -webkit-animation-name: fadeTransRight;
+  animation-name: fadeTransRight;
+}
+
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;

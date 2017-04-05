@@ -19,10 +19,10 @@
 	}
 	if(isset($_GET['g'])){
 		$copyright = '<p class="wowload flipInX">
-		<a href="#"><i class="fa fa-facebook fa-2x"></i></a> 
-		<a href="#"><i class="fa fa-instagram fa-2x"></i></a> 
-		<a href="#"><i class="fa fa-twitter fa-2x"></i></a> 
-		<a href="#"><i class="fa fa-flickr fa-2x"></i></a></p>';
+		<a href="#"><i class="fa fa-weibo fa-2x"></i></a> 
+		<a href="#"><i class="fa fa-weixin fa-2x"></i></a> 
+		<a href="#"><i class="fa fa-steam-square fa-2x"></i></a> 
+		<a href="https://github.com/VenusWorkshop"><i class="fa fa-github fa-2x"></i></a> </p>';
 		echo $copyright;
 	}
 ?>

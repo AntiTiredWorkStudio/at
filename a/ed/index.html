@@ -1,0 +1,35 @@
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>发布</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link href="css/editor.css" type="text/css" rel="stylesheet"/>
+
+<!--[if IE]>
+<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+
+</head>
+<body style="padding:10px;">			
+
+
+<h4 >问题描述</h4>
+
+<textarea id="txtEditor"></textarea> 		
+	 			
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/editor.js"></script>
+<script type="text/javascript">
+$(document).ready( function() {
+	$("#txtEditor").Editor();                         
+});
+</script>
+
+</body>
+</html>
