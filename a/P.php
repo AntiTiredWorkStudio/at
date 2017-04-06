@@ -1,5 +1,5 @@
 <?php
-	header("Content-Type: text/html;charset=utf-8"); 
+/*	header("Content-Type: text/html;charset=utf-8"); 
 	function getDirs($dir) {
 		$dirArray[]=NULL;
 		if (false != ($handle = opendir ( $dir ))) {
@@ -55,7 +55,7 @@
 		}else{
 			return "";
 		}
-	}
+	}*/
 	/*foreach($arr as $key=>$value){
 		echo $key.'=>'.$value.'</br>';
 		$files = getFiles('../images/demos/'.$value);
@@ -65,6 +65,7 @@
 			echo '&nbspno config file!</br>';
 		}
 	}*/
+	include_once("Public.php");
 	$arr = getDirs('../images/demos');
 //	var_dump($arr);
 	
@@ -96,6 +97,9 @@
 		}else{
 			continue;
 		}
+		if(isset($C['secret']) && $C['secret']){
+			continue;
+		}
 		$title = $C['title'];
 		$intro = $C['content'];
 		$videos = $C['videos'];
@@ -106,7 +110,7 @@
         <figcaption>
             <h2><?php echo $title;?></h2>
             <p><?php echo $intro;?><br>
-            <a onclick = "alert('还未完成加载');" href = "<?php echo 'http://www.lofs.pw/';?>" shref="<?php echo $files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
+            <a onclick = "alert('还未完成加载');" href = "<?php echo '../../';?>" shref="<?php echo $files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
 				$v = GetVideo($files[0],$videos);
 				echo '01'.(($v != '')?'[预览]':'');
 			?>" 

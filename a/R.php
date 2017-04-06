@@ -22,7 +22,7 @@
 		<a href="#"><i class="fa fa-weibo fa-2x"></i></a> 
 		<a href="#"><i class="fa fa-weixin fa-2x"></i></a> 
 		<a href="#"><i class="fa fa-steam-square fa-2x"></i></a> 
-		<a href="#"><i class="fa fa-github fa-2x"></i></a> </p>';
+		<a href="https://github.com/VenusWorkshop"><i class="fa fa-github fa-2x"></i></a> </p>';
 		echo $copyright;
 	}
 ?>

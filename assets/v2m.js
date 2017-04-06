@@ -69,7 +69,7 @@ $.ajax({
  var d = new Date(),
  nowYear = +d.getFullYear();
  inputNow = nowYear;
- 
+ var ICP = "京ICP备17013536号";
 PostForm = {};
 	PostForm["Year"] = inputNow;
 var content = "";
@@ -79,7 +79,7 @@ $.ajax({
 	data: PostForm,
 	success: function(data){
 		content = data;
-		$("#Copyright").html(content+"Copyright &copy; "+inputNow+".Anti Tired Techno All rights reserved.");
+		$("#Copyright").html(content+"Copyright &copy; "+inputNow+".Anti Tired Techno All rights reserved."+ICP);
 	},
 	dataType: "text"});
  
@@ -90,6 +90,51 @@ $.ajax({
 	success: function(data){
 		$("#articles").html(data);
 		//console.log(data);
+	},
+	dataType: "text"});
+	
+$.ajax({
+	type: 'POST',
+	url: "a/T.php",
+	data: PostForm,
+	success: function(data){
+		$("#teams").html(data);
+		var visible = false;
+		var lastFig = null;
+         $('.btt').click(function(){
+				$(this).parent('p').next().fadeIn(500);
+				if(lastFig !=null && (lastFig != $(this).parent('p').next())){
+					lastFig.fadeOut(500);
+				}
+				lastFig = $(this).parent('p').next();
+				visible = true;
+         });
+		 $('.dis_fig').click(function(){
+			if(lastFig!=null && lastFig != $(this)){
+				lastFig.fadeOut(500);
+			}
+			if(visible){
+				$(this).fadeOut(500);
+				setTimeout(function(){
+					visible = false;
+				//	lastFig = null;
+				},500);
+			}
+         });
+         $('.dis_fig').hover(function(){
+			//if(!visible){
+			//	$(this).fadeIn(500);
+			//		visible = true;
+			//}
+         },function(){
+			//if(visible){
+				$(this).fadeOut(500);
+				setTimeout(function(){
+					visible = false;
+				//	lastFig = null;
+				},500);
+			//}
+         });
 	},
 	dataType: "text"});
  
