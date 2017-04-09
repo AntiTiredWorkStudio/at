@@ -1,10 +1,15 @@
 <?php 
 	header("Content-Type: text/html;charset=utf-8"); 
-	if(isset($_GET['a'])){
+	include_once("../Keychain.php");
+	if(!KeyChain('../') && !isset($_GET['i'])){
+		echo '验证失败!';
+		exit;
+	}
+	if(isset($_POST['a'])){
 		//var_dump($_GET);
 		$arr=json_decode(file_get_contents('config.json'),TRUE); 
-		$arr['article'][count($arr['article'])]['title'] = $_GET["at_title"];
-		$arr['article'][count($arr['article'])-1]['url'] = $_GET["at_url"];
+		$arr['article'][count($arr['article'])]['title'] = $_POST["at_title"];
+		$arr['article'][count($arr['article'])-1]['url'] = $_POST["at_url"];
 		file_put_contents('config.json',json_encode($arr));
 		echo 'success';
 		exit;
@@ -38,18 +43,24 @@
 	}
 
 
-	$rarr = array_reverse($arr['article']);
-	foreach($rarr as $key=>$value){
+	//$rarr = $arr['article'];
+	//array_reverse($arr['article']);
+	$rarr = array();
+	foreach($arr['article'] as $key=>$value){
 		if($total>$limSize){
 			$total--;
 			continue;
 		}
-		
+		$rarr[$key] = $value;
+		$total--;
+		//echo $key.' => '.$value['title'].'</br>';
+	}
+	
+	$rarr = array_reverse($rarr);
+	
+	foreach($rarr as $key=>$value){
 		?>
 		<li class = "li-list"><a href="<?php echo $value['url'];?>"><?php echo ((strlen($value['title'])>15)?mb_substr($value['title'],0,15).'...':$value['title']);?></a></li>					
 		<?php
-		
-		$total--;
-		//echo $key.' => '.$value['title'].'</br>';
 	}
 ?>

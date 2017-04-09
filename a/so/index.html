@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>备份资源</title>
+
+<!-- Google fonts -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+<!-- font awesome -->
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- bootstrap -->
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+
+<!-- animate.css -->
+<link rel="stylesheet" href="/assets/animate/animate.css" />
+<link rel="stylesheet" href="/assets/animate/set.css" />
+
+<!-- gallery -->
+<link rel="stylesheet" href="/assets/gallery/blueimp-gallery.min.css">
+
+<!-- favicon -->
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+<!-- jquery -->
+<script src="/assets/jquery.js"></script>
+<!--[if lt IE9]> 
+<script src="assets/j.js"></script>
+<![endif]-->
+<style type="text/css">
+.erwei{width:100%;height:70%;}
+.erwei img{width:100%;height:100%}
+</style>
+</head>
+
+<body>
+<div id="contact" class="spacer">
+
+<div class="container contactform center">
+<h2 id="status" class="text-center  wowload fadeInUp">备份数据</h2>
+  <div class="row wowload fadeInLeftBig">      
+      <div class="col-sm-6 col-sm-offset-3 col-xs-12">    
+		<input id="accessKey" type="text" placeholder="通道Key">
+		<input id="secretKey" type="text" placeholder="加密Key">
+		<input id="bucketName" type="text" placeholder="空间名">
+		<input id="bakPath" type="text" value="../images/" placeholder="备份路径">
+        <button id="show" class="btn btn-primary"><i class="fa fa-paper-plane"></i> 显示文件</button>
+      </div>
+      <div id="list" class="col-sm-6 col-sm-offset-3 col-xs-12">    
+      </div>
+      <div class="col-sm-6 col-sm-offset-3 col-xs-12">    
+        <button id="controls" class="btn btn-primary"><i class="fa fa-paper-plane"></i> 开始备份</button>
+      </div>
+  </div>
+
+	<div style="
+    padding-top: 12px;
+    padding-bottom: 12px;
+"></div>
+  <div class="row wowload fadeInLeftBig">
+      <div  class="col-sm-6 col-sm-offset-3 col-xs-12">
+		<span style="font-size:20px;"><a href = '../../'><i class="fa fa-reply"></i> 返回首页</a></span>  
+	  </div>
+  </div>    
+	
+</div> 
+   <script type="text/javascript">
+   function setCookie(name,value)
+	{
+		var Days = 30;
+		var exp = new Date();
+		exp.setTime(exp.getTime() + Days*24*60*60*1000);
+		document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+	}
+	function getCookie(name)
+	{
+		var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+		if(arr=document.cookie.match(reg))
+		return unescape(arr[2]);
+		else
+		return null;
+	}
+	function delCookie(name)
+	{
+		var exp = new Date();
+		exp.setTime(exp.getTime() - 1);
+		var cval=getCookie(name);
+		if(cval!=null)
+		document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+	}
+	
+	if(getCookie("ak")!=null){
+		console.log("set ak");
+		$("#accessKey").val(getCookie("ak"));
+	}
+	
+	if(getCookie("sk")!=null){
+		
+		console.log("set sk");
+		$("#secretKey").val(getCookie("sk"));
+	}
+   
+	if(getCookie("bk")!=null){
+		
+		console.log("set bk");
+		$("#bucketName").val(getCookie("bk"));
+	}
+	
+   var ShowClick = function(){
+		var PostForm = {"list":"list action"};
+		PostForm["td"] = $("#bakPath").val();
+		$.ajax({
+			type: 'POST',
+			url: "../Q.php",
+			data: PostForm,
+			success: function(data){
+			$("#list").html(data);
+				},
+			dataType: "text"});
+	}
+	if(getCookie("td")!=null){
+		console.log("set td");
+		$("#bakPath").val(getCookie("td"));
+		ShowClick();
+	}
+   
+   
+   var uploading = false;
+   
+	
+   $("#controls").click(function(){
+		if(!uploading){
+			uploading = true;
+			$("#status").html("正在备份!");
+			bakAction();
+		}
+	});
+	
+   $("#show").click(ShowClick);
+	
+	
+	
+	
+   var bakAction = function(){
+		if($("#accessKey").val()=="" || $("#secretKey").val()=="" ||  $("#bucketName").val()=="" ||  $("#bakPath").val()==""
+		){
+			alert("填写不完整!");
+			$("#status").html("备份数据");
+			uploading = false;
+			return;
+		}
+		setCookie("ak",$("#accessKey").val());
+		setCookie("sk",$("#secretKey").val());
+		setCookie("bk",$("#bucketName").val());
+		setCookie("td",$("#bakPath").val());
+		
+		var timeCount = 0;
+		var timer = window.setInterval(function(){
+			timeCount ++;
+			$("#status").html("正在备份!  用时:"+timeCount+"秒");
+		},1000);
+		var PostForm = {"ak":$("#accessKey").val()};
+		PostForm["sk"] = $("#secretKey").val();
+		PostForm["bk"] = $("#bucketName").val();
+		PostForm["td"] = $("#bakPath").val();
+		
+		console.log(PostForm);
+		$.ajax({
+			type: 'POST',
+			url: "../Q.php",
+			data: PostForm,
+			success: function(data){
+				uploading = false;
+			window.clearInterval(timer);
+			$("#status").html("备份数据");
+				alert(data);
+				},
+			dataType: "text"});
+   }
+   </script>
+</body>
+</html>
