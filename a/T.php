@@ -9,7 +9,11 @@
 <?php
 	
 	include_once("Public.php");
-	
+	include_once("Keychain.php");
+	if(!KeyChain()){
+		echo '验证失败!';
+		exit;
+	}
 	$arr = getDirs('../images/team');
 //	var_dump($arr);
 	
@@ -39,14 +43,14 @@
 ?>
 <div class="col-sm-3 col-xs-6">
 	<figure class="effect-chico">
-        <img src="<?php echo $files['head'];?>" alt="img01" class="img-responsive" />
+        <img src="<?php echo 'http://oo17i9uqp.bkt.clouddn.com/'.$files['head'];?>" alt="img01" class="img-responsive" />
         <figcaption>
             <p><?php echo $name;?></p>    
             <p><?php echo $intro;?></p>  
             <p><input type="button" name="" value="联系我" class="btt"></p>
             <div class="dis_fig">
              <div class="pic">
-                 <img src="<?php echo $files['qrcode'];?>" >
+                 <img src="<?php echo 'http://oo17i9uqp.bkt.clouddn.com/'.$files['qrcode'];?>" >
                  <p><span>手机：</span><span><?php echo $tel;?></span></p>
                  <p><span>邮箱：</span><span><?php echo $mail;?></span></p>
              </div>

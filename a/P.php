@@ -1,4 +1,10 @@
 <?php
+
+	include_once("Keychain.php");
+	if(!KeyChain()){
+		echo '验证失败!';
+		exit;
+	}
 /*	header("Content-Type: text/html;charset=utf-8"); 
 	function getDirs($dir) {
 		$dirArray[]=NULL;
@@ -106,11 +112,11 @@
 		$galleryName = 'data-gallery';
 		?>
 <figure class="effect-oscar  wowload <?php echo ((($_POST['d']=='false'))?"fadeTransLeft":"fadeTransRight");?>">
-        <img src="<?php echo $files[0];?>" alt="img01"/>
+        <img src="<?php echo (($index%2==0)?'http://oo17i9uqp.bkt.clouddn.com/':'http://olbe549rf.bkt.clouddn.com/').$files[0];?>" alt="img01"/>
         <figcaption>
             <h2><?php echo $title;?></h2>
             <p><?php echo $intro;?><br>
-            <a onclick = "alert('还未完成加载');" href = "<?php echo '../../';?>" shref="<?php echo $files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
+            <a onclick = "alert('还未完成加载');" href = "<?php echo '../../';?>" shref="<?php echo (($index%2==0)?'http://oo17i9uqp.bkt.clouddn.com/':'http://olbe549rf.bkt.clouddn.com/').$files[0];?>" gallery="<?php $itemIndex =(($index<10)?'0':'').$index; echo $itemIndex;?>" title="<?php
 				$v = GetVideo($files[0],$videos);
 				echo '01'.(($v != '')?'[预览]':'');
 			?>" 
@@ -125,7 +131,7 @@
 					}
 					$IndexContent =(($detialsIndex<10)?'0':'').$detialsIndex;
 			?>   
-			<a href="<?php echo $value;?>" style="visibility:hidden" title="<?php $vv = GetVideo($value,$videos); echo $IndexContent.(($vv != '')?'[预览]':'');?>" <?php echo $vv?> <?php echo $galleryName.$itemIndex;?>></a>
+			<a href="<?php echo (($index%2==0)?'http://oo17i9uqp.bkt.clouddn.com/':'http://olbe549rf.bkt.clouddn.com/').$value;?>" style="visibility:hidden" title="<?php $vv = GetVideo($value,$videos); echo $IndexContent.(($vv != '')?'[预览]':'');?>" <?php echo $vv?> <?php echo $galleryName.$itemIndex;?>></a>
 			<?php 
 					$detialsIndex++;
 				}

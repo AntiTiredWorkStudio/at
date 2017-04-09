@@ -31,6 +31,8 @@
 
 <!-- jquery -->
 <script src="../../assets/jquery.js"></script>
+<script src="https://cdn.bootcss.com/js-sha1/0.4.1/sha1.js"></script>
+<script src="/assets/k.js"></script>
 <!--[if lt IE9]> 
 <script src="assets/j.js"></script>
 <![endif]-->
@@ -73,15 +75,17 @@
   </div>    
    <script type="text/javascript">
    
-		
+	var pf = function(){
+	var PostForm = {"key":keychain};
 		$.ajax({
-			type: 'GET',
-			url: "../porn?s",
-			data: null,
+			type: 'POST',
+			url: "../porn/index.php?s",
+			data: PostForm,
 			success: function(data){
 				$("#setting").html(data);
 				},
 			dataType: "text"});
+	}
    var ispost = false;
    var SubmitMsg = function(){
 		if(!ispost){
@@ -91,19 +95,24 @@
 		}
 		
 		console.log("SubmitMsg");
-		var PostForm = {"at_title":$("#at_title").val()};
+		 PostForm = {"at_title":$("#at_title").val()};
 		PostForm["a"] = "article";
 		PostForm["at_title"] = $("#at_title").val();
 		PostForm["at_url"] = $("#at_url").val();
+		PostForm["key"] = keychain;
 		console.log(PostForm);
 		
 		$.ajax({
-			type: 'GET',
-			url: "../porn",
+			type: 'POST',
+			url: "../porn/index.php",
 			data: PostForm,
 			success: function(data){
-				alert("发布成功!");
-				window.location.href = "../post";
+					if(data == "验证失败!"){
+						alert(data);
+					}else{
+						alert("发布成功!");
+					}
+					window.location.href = "../post";
 				},
 			dataType: "text"});
 			

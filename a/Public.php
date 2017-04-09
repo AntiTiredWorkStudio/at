@@ -1,6 +1,7 @@
 <?php
 	header("Content-Type: text/html;charset=utf-8"); 
 	function getDirs($dir) {
+		//echo $dir;
 		$dirArray[]=NULL;
 		if (false != ($handle = opendir ( $dir ))) {
 			$i=0;
@@ -18,6 +19,7 @@
 	}
 	
 	function getFiles($dir) {
+		//echo $dir;
 		$file=scandir($dir);
 		$filePaths = [];
 		$index = 0;
@@ -79,3 +81,4 @@
 			return "";
 		}
 	}
+?>

@@ -32,6 +32,8 @@
 
 <!-- jquery -->
 <script src="assets/jquery.js"></script>
+<script src="https://cdn.bootcss.com/js-sha1/0.4.1/sha1.js"></script>
+<script src="assets/k.js"></script>
 <!--[if lt IE9]> 
 <script src="assets/j.js"></script>
 <![endif]-->
@@ -367,6 +369,20 @@ Copyright &copy; 2017.Anti Tired Techno All rights reserved.京ICP备17013536号
 
 <!-- custom script -->
 <script src="assets/script.js"></script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 
 </body>
 </html>
